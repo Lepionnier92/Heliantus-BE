@@ -38,17 +38,23 @@
                 return;
             }
 
-            // Récupérer le pseudo correspondant à l'identifiant
-            var pseudoAssocie = identifiantsPseudos[identifiant];
+            // Vérifier si la carte existe déjà dans le stockage local
+            var cartes = JSON.parse(localStorage.getItem('cartes')) || [];
+            var carteExistante = cartes.find(function(carte) {
+                return carte.pseudo === pseudo;
+            });
+
+            // Si la carte existe déjà, informer l'utilisateur et arrêter le processus
+            if (carteExistante) {
+                alert('Une carte avec ce pseudo et cet identifiant administrateur existe déjà.');
+                return;
+            }
 
             // Créer un objet contenant les données à envoyer
             var data = {
                 pseudo: pseudo,
                 identifiant: identifiant
             };
-
-            // Récupérer les données actuelles du stockage local
-            var cartes = JSON.parse(localStorage.getItem('cartes')) || [];
 
             // Ajouter les nouvelles données au tableau
             cartes.push(data);
@@ -62,4 +68,3 @@
     </script>
 </body>
 </html>
-
