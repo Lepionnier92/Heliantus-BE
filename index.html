@@ -1,1 +1,241 @@
-<h1>Test Page github site</h1>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Principale</title>
+    <style>
+        .list-card {
+            display: flex; /* Utilisation de Flexbox */
+            flex-wrap: wrap; /* Permettre aux éléments de passer à la ligne si nécessaire */
+        }
+
+        .carte-button {
+            margin-bottom: 10px; /* Espacement entre les lignes de boutons */
+            /* Autres styles */
+        }
+
+        /* Styles pour les boutons de carte */
+        .carte-button {
+            margin-bottom: 10px; /* Espacement entre les boutons */
+            border-radius: 10px;
+            background-image: url("https://cdn.discordapp.com/attachments/1062809373828714576/1210280203402878976/textureH.png?ex=65e9fc46&is=65d78746&hm=c7867293bd7678378d4e8371375c6e633c3b22b4260e298d2484c6bd912d1e0f&");
+            color: #fff;
+            border: #78b8ff;
+        }
+
+
+        .carte-button a {
+            display: block; /* Pour que le lien occupe tout le bouton */
+            text-decoration: none; /* Supprimer le soulignement du lien */
+            padding-top: 5px;
+        }
+
+        .carte-button img {
+            width: 75px; /* Taille de l'image */
+            height: 75px; /* Taille de l'image */
+        }
+
+        .carte-button strong {
+            display: block; /* Pour que le texte apparaisse sous l'image */
+            text-align: center; /* Centrer le texte */
+        }
+
+        .delete-button {
+            background-color: #c6003e; /* Couleur de fond du bouton de suppression */
+            color: #fff; /* Couleur du texte du bouton de suppression */
+            border: none; /* Supprimer les bordures */
+            padding: 5px 10px; /* Espacement à l'intérieur du bouton */
+            border-radius: 5px; /* Coins arrondis */
+            cursor: pointer; /* Curseur de la souris en forme de main */
+            margin-left: 2.5px; /* Espacement à gauche du bouton */
+            margin-right: 20px;
+            margin-top: 45px;
+            margin-bottom: 45px;
+        }
+
+        .search-bar {
+            margin-bottom: 10px;
+        }
+        body {
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: #78b8ff;
+
+        }
+        .entete {
+            font-size: 15;
+            background-color:rgba(255, 255, 255, 0);
+            color: rgb(46, 43, 43);
+            padding: auto;
+            margin: auto;
+            text-align: center;
+        }
+
+        .create-card {
+            border-radius: 90px;
+            font-size: 20px;
+            border: 1px solid rgb(103, 192, 43);
+            background-color: rgb(103, 192, 43);
+            color: white;
+            margin-bottom: 20px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="entete">
+        <img class="img-heliante" src="https://cdn.discordapp.com/attachments/1062809373828714576/1210252116149674034/minecraft_title.png?ex=65e9e21d&is=65d76d1d&hm=a45e96ebe37ce67436be27a0d8c627bde8dd1db4845a2243b788e6e4ea603970&" alt="Logo Heliantus">
+    
+        <h2 class="list-titre">Liste de carte d'identiter :</h2>
+    </div>
+
+    <!-- Bouton pour ouvrir la page de création de carte -->
+    <button onclick="ouvrirPageCreationCarte()" class="create-card"><strong>Créer une carte</strong></button>
+
+    <br>
+    <!-- Barre de recherche -->
+    <input type="text" id="search" class="search-bar" placeholder="Rechercher par pseudo...">
+    
+    <!-- Listes des cartes -->
+    <div class="list-card">
+        <!-- Vos boutons ici -->
+    </div>
+
+    <script>
+        function ouvrirPageCreationCarte() {
+    var popup = window.open('page_creation_carte.html', '_blank', 'width=600,height=400');
+
+    // Écouter les messages envoyés depuis la page de création de carte
+    window.addEventListener('message', function(event) {
+        // Vérifier si le message vient de la bonne source
+        if (event.source === popup) {
+            // Récupérer les données
+            var data = event.data;
+            var pseudo = data.pseudo;
+
+            // Vérifier si le pseudo existe déjà dans le stockage local
+            var cartes = JSON.parse(localStorage.getItem('cartes')) || [];
+            var existingCard = cartes.find(function(carte) {
+                return carte.pseudo === pseudo;
+            });
+
+            // Vérifier si la carte est déjà créée avec le même pseudo, sauf si le pseudo est "test"
+            if (existingCard && pseudo.toLowerCase() !== 'test') {
+                alert('Une carte avec ce pseudo existe déjà.');
+                return; // Arrêter le processus si la carte existe déjà
+            }
+
+            // Créer l'élément <button> avec les informations nécessaires
+            var button = document.createElement('button');
+            button.classList.add('carte-button'); // Ajout de la classe carte-button
+            var a = document.createElement('a');
+            a.href = pseudo + '/' + pseudo + '.html';
+            var img = document.createElement('img');
+            img.src = 'https://skins.nationsglory.fr/face/' + pseudo + '/3d/20';
+            img.alt = "test";
+            var strong = document.createElement('strong');
+            strong.textContent = pseudo;
+            a.appendChild(img);
+            button.appendChild(a);
+            button.appendChild(strong);
+
+            // Créer un bouton de suppression pour cette carte
+            var deleteButton = document.createElement('button');
+            deleteButton.innerText = 'Supprimer';
+            deleteButton.classList.add('delete-button'); // Ajout de la classe delete-button
+            deleteButton.addEventListener('click', function() {
+                // Supprimer la carte et le bouton de suppression
+                button.remove();
+                deleteButton.remove();
+                // Supprimer les données de la carte du stockage local
+                var cartes = JSON.parse(localStorage.getItem('cartes')) || [];
+                var index = cartes.findIndex(function(carte) {
+                    return carte.pseudo === pseudo;
+                });
+                if (index !== -1) {
+                    cartes.splice(index, 1);
+                    localStorage.setItem('cartes', JSON.stringify(cartes));
+                }
+            });
+
+            // Ajouter les éléments à la liste des cartes
+            var listCarte = document.querySelector('.list-card');
+            listCarte.appendChild(button);
+            listCarte.appendChild(deleteButton);
+
+            // Ajouter les données de la carte au stockage local
+            if (!existingCard || pseudo.toLowerCase() === 'test') {
+                cartes.push({ pseudo: pseudo });
+                localStorage.setItem('cartes', JSON.stringify(cartes));
+            }
+        }
+    });
+}
+
+// Récupérer les données de toutes les cartes depuis le stockage local
+var cartes = JSON.parse(localStorage.getItem('cartes')) || [];
+
+// Parcourir toutes les cartes et créer les éléments <button> et les boutons de suppression
+cartes.forEach(function(carte) {
+    var pseudo = carte.pseudo;
+
+    // Créer l'élément <button> avec les informations nécessaires
+    var button = document.createElement('button');
+    button.classList.add('carte-button'); // Ajout de la classe carte-button
+    var a = document.createElement('a');
+    a.href = pseudo + '/' + pseudo + '.html';
+    var img = document.createElement('img');
+    img.src = 'https://skins.nationsglory.fr/face/' + pseudo + '/3d/20';
+    img.alt = pseudo;
+    var strong = document.createElement('strong');
+    strong.textContent = pseudo;
+    a.appendChild(img);
+    button.appendChild(a);
+    button.appendChild(strong);
+
+    // Créer un bouton de suppression pour cette carte
+    var deleteButton = document.createElement('button');
+    deleteButton.innerText = 'Supprimer';
+    deleteButton.classList.add('delete-button'); // Ajout de la classe delete-button
+    deleteButton.addEventListener('click', function() {
+        // Supprimer la carte et le bouton de suppression
+        button.remove();
+        deleteButton.remove();
+        // Supprimer les données de la carte du stockage local
+        var index = cartes.findIndex(function(carte) {
+            return carte.pseudo === pseudo;
+        });
+        if (index !== -1) {
+            cartes.splice(index, 1);
+            localStorage.setItem('cartes', JSON.stringify(cartes));
+        }
+    });
+
+    // Ajouter les éléments à la liste des cartes
+    var listCarte = document.querySelector('.list-card');
+    listCarte.appendChild(button);
+    listCarte.appendChild(deleteButton);
+});
+
+// Ajouter un écouteur d'événement sur la barre de recherche
+document.getElementById('search').addEventListener('input', function(event) {
+            var searchTerm = event.target.value.toLowerCase(); // Convertir la recherche en minuscules
+            var buttons = document.querySelectorAll('.carte-button'); // Sélectionner tous les boutons de carte
+
+            buttons.forEach(function(button) {
+                var pseudo = button.querySelector('strong').textContent.toLowerCase(); // Obtenir le pseudo de la carte actuelle
+                // Vérifier si le pseudo de la carte correspond à la recherche
+                if (pseudo.includes(searchTerm)) {
+                    button.style.display = 'block'; // Afficher le bouton de carte
+                    button.nextElementSibling.style.display = 'block'; // Afficher le bouton de suppression
+                } else {
+                    button.style.display = 'none'; // Masquer le bouton de carte
+                    button.nextElementSibling.style.display = 'none'; // Masquer le bouton de suppression
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
