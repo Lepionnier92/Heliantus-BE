@@ -20,7 +20,7 @@
     <script>
         // Objets pour relier chaque identifiant à un pseudo
         var identifiantsPseudos = {
-            "DE574": "Jules92",
+            "admin1": "pseudo1",
             "admin2": "pseudo2",
             "admin3": "pseudo3"
         };
@@ -56,10 +56,10 @@
             // Stocker les données mises à jour dans le stockage local
             localStorage.setItem('cartes', JSON.stringify(cartes));
 
-            // Envoyer les données à la page principale
-            window.opener.postMessage(data, '*');
-
+            // Créer une redirection vers une page de grande carte d'identité avec les données
+            window.location.href = 'grande_carte_identite.html?pseudo=' + pseudo + '&identifiant=' + identifiant;
         });
     </script>
 </body>
 </html>
+
