@@ -48,8 +48,8 @@ body {
 
 /* Styles pour chaque carte */
 .carte {
-    display: inline-flex; /* Utiliser flexbox pour centrer l'image */
-    justify-content: center; /* Centrer horizontalement */
+   /* display: inline-flex; /* Utiliser flexbox pour centrer l'image 
+    justify-content: center; /* Centrer horizontalement 
     align-items: center; /* Centrer verticalement */
     width: 88px; /* Définir une largeur minimale pour la carte */
     min-width: 88px; /* Largeur minimale */
