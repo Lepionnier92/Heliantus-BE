@@ -6,7 +6,6 @@
 .carte {
     display: inline-flex; /* Utiliser flexbox pour centrer l'image */
     justify-content: center; /* Centrer horizontalement */
-    align-items: center; /* Centrer verticalement */
     height: 110px;
     margin-right: 10px; /* Ajouter un espace entre les cartes */
     margin-bottom: 10px; /* Ajouter un espace en bas des cartes */
