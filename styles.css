@@ -41,7 +41,7 @@ body {
     border-radius: 5px; /* Bordure arrondie */
     border: 1px solid #ccc; /* Bordure grise */
     padding: 5px 10px; /* Espacement à l'intérieur de la barre */
-   
+    width: auto; /* Largeur de la barre de recherche */
     box-shadow: 10px 5px 5px red;
 }
 
