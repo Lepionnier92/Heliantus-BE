@@ -6,7 +6,7 @@
     <title>Accueil | Heliantus</title>
     <style>
         body {
-            background-color: #f0f8ff; /* Bleu clair blanchâtre */
+            background-color: #87CEEB; /* Bleu ciel */
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Police spécifiée */
             margin: 0; /* Supprimer les marges par défaut */
         }
@@ -30,9 +30,6 @@
             position: relative; /* Position relative pour positionner le bouton supprimer */
         }
         .supprimer {
-            position: absolute; /* Position absolue par rapport à la carte */
-            top: 5px; /* Décalage par rapport au haut de la carte */
-            right: 5px; /* Décalage par rapport à la droite de la carte */
             border-radius: 50%; /* Rendre le bouton rond */
             background-color: #FF5733; /* Couleur de fond pour le bouton supprimer */
             color: white; /* Couleur du texte */
@@ -41,6 +38,9 @@
             font-size: 12px; /* Taille de la police */
             border: none; /* Supprimer la bordure */
             cursor: pointer; /* Curseur pointer */
+            position: absolute; /* Position absolue par rapport à la carte */
+            top: -10px; /* Décalage par rapport au haut de la carte */
+            right: -10px; /* Décalage par rapport à la droite de la carte */
         }
         .supprimer:hover {
             background-color: #FF2200; /* Changement de couleur au survol */
@@ -87,16 +87,6 @@
                         var carteDiv = document.createElement('div');
                         carteDiv.className = "carte";
 
-                        var supprimerBtn = document.createElement('button');
-                        supprimerBtn.className = "supprimer";
-                        supprimerBtn.innerText = "X";
-                        supprimerBtn.onclick = function() {
-                            var confirmation = confirm("Êtes-vous sûr de vouloir supprimer cette carte ?");
-                            if (confirmation) {
-                                this.parentNode.remove();
-                            }
-                        };
-
                         var img = document.createElement('img');
                         img.src = "https://skins.nationsglory.fr/face/" + pseudo + "/3d/20";
                         img.className = "img-icon";
@@ -107,15 +97,17 @@
 
                         carteDiv.appendChild(img);
                         carteDiv.appendChild(a);
+
+                        var supprimerBtn = document.createElement('button');
+                        supprimerBtn.className = "supprimer";
+                        supprimerBtn.innerText = "X";
+                        supprimerBtn.onclick = function() {
+                            var confirmation = confirm("Êtes-vous sûr de vouloir supprimer cette carte ?");
+                            if (confirmation) {
+                                this.parentNode.remove();
+                            }
+                        };
+
                         carteDiv.appendChild(supprimerBtn);
 
-                        document.getElementById('cartes').appendChild(carteDiv);
-                    }
-                } else {
-                    alert("Code administrateur incorrect");
-                }
-            }
-        }
-    </script>
-</body>
-</html>
+                        document.getElementById('cartes').appendChild(carte
