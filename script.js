@@ -42,13 +42,8 @@ function afficherCarte(pseudo) {
     img.alt = "Photo du joueur";
 
     var a = document.createElement('a');
-    a.href = pseudo + '/' + pseudo; // Redirection vers la page spécifique
+    a.href = 'Carte d\'identiter/Carte/' + pseudo; // Redirection vers la page spécifique
     a.innerHTML = "<strong>" + pseudo + "</strong>";
-
-    a.addEventListener('click', function(event) {
-        event.preventDefault();
-        window.location.href = pseudo + '/' + pseudo;
-    });
 
     carteDiv.appendChild(img);
     carteDiv.appendChild(a);
