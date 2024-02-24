@@ -1,75 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil | Heliantus</title>
+    <title>Page Principale</title>
     <style>
-        body {
-            background-color: #87CEEB; /* Bleu ciel */
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Police spécifiée */
-            margin: 0; /* Supprimer les marges par défaut */
+        .cartes {
+            display: flex; /* Utilisation de Flexbox */
+            flex-wrap: wrap; /* Permettre aux éléments de passer à la ligne si nécessaire */
         }
-        .en_tête {
-            margin: auto; /* Ajustement automatique de la marge */
-            text-align: center; /* Alignement central du texte */
-            color: rgb(46, 43, 43); /* Couleur du texte */
-            padding: auto; /* Ajustement automatique du rembourrage */
-            font-size: 15px; /* Taille de la police pour l'en-tête */
-        }
-        h2 {
-            color: #000; /* Couleur du texte noir */
-            margin-top: 20px; /* Marge supérieure pour l'espace */
-        }
+
         .carte {
-            margin-top: 20px; /* Marge supérieure pour l'espace */
-            text-align: center; /* Alignement central */
-            background-color: rgba(255, 255, 255, 0.5); /* Couleur de fond semi-transparente */
-            padding: 20px; /* Espacement interne */
-            border-radius: 10px; /* Bordure arrondie */
-            position: relative; /* Position relative pour positionner le bouton supprimer */
+            display: inline-block; /* Afficher les cartes en ligne */
+            width: 88px; /* Définir une largeur fixe pour la carte */
+            height: 110px;
+            margin-right: 10px; /* Ajouter un espace entre les cartes */
+            margin-bottom: 10px; /* Ajouter un espace en bas des cartes */
+            /* Autres styles */
         }
-        .supprimer {
-            border-radius: 50%; /* Rendre le bouton rond */
-            background-color: #FF5733; /* Couleur de fond pour le bouton supprimer */
-            color: white; /* Couleur du texte */
-            width: 25px; /* Largeur du bouton supprimer */
-            height: 25px; /* Hauteur du bouton supprimer */
-            font-size: 12px; /* Taille de la police */
-            border: none; /* Supprimer la bordure */
-            cursor: pointer; /* Curseur pointer */
-            position: absolute; /* Position absolue par rapport à la carte */
-            top: -10px; /* Décalage par rapport au haut de la carte */
-            right: -10px; /* Décalage par rapport à la droite de la carte */
+        /* Styles pour les boutons de carte */
+        .carte {
+            margin-bottom: 10px; /* Espacement entre les boutons */
+            border-radius: 10px;
+            background-image: url("https://cdn.discordapp.com/attachments/1062809373828714576/1210280203402878976/textureH.png?ex=65e9fc46&is=65d78746&hm=c7867293bd7678378d4e8371375c6e633c3b22b4260e298d2484c6bd912d1e0f&");
+            color: #fff;
+            border: #78b8ff;
         }
-        .supprimer:hover {
-            background-color: #FF2200; /* Changement de couleur au survol */
+
+
+        .carte a {
+            display: block; /* Pour que le lien occupe tout le bouton */
+            text-decoration: none; /* Supprimer le soulignement du lien */
+            padding-top: 0px;
         }
-        .bouton {
+
+        .carte img {
+            width: 75px; /* Utiliser toute la largeur de la carte pour l'image */
+            height: auto; /* Ajuster automatiquement la hauteur de l'image */
+            padding-left: 7px;
+            padding-top: 5px;
+        }
+
+        .carte strong {
+            display: block; /* Pour que le texte apparaisse sous l'image */
+            text-align: center; /* Centrer le texte */
+        }
+
+        .delete-button {
+            background-color: #c6003e; /* Couleur de fond du bouton de suppression */
+            color: #fff; /* Couleur du texte du bouton de suppression */
+            border: none; /* Supprimer les bordures */
+            padding: 5px 10px; /* Espacement à l'intérieur du bouton */
+            border-radius: 5px; /* Coins arrondis */
+            cursor: pointer; /* Curseur de la souris en forme de main */
+            margin-left: 2.5px; /* Espacement à gauche du bouton */
+            margin-right: 20px;
+            margin-top: 10px;
+            margin-bottom: 45px;
+        }
+
+        .search-bar {
+            margin-bottom: 10px;
+        }
+        body {
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: #87CEEB;
+
+        }
+        .entete {
+            font-size: 15;
+            color: rgb(46, 43, 43);
+            padding: auto;
+            margin: auto;
+            text-align: center;
+        }
+
+        .create-card {
             border-radius: 90px; /* Bordure arrondie */
             font-size: 20px; /* Taille de la police */
             border: 1px solid rgb(103, 192, 43); /* Bordure */
             background-color: rgb(103, 192, 43); /* Couleur de fond */
             color: white; /* Couleur du texte */
+            margin-top: 20px; /* Marge supérieure pour l'espace */
             margin-bottom: 20px; /* Marge inférieure */
-            cursor: pointer; /* Curseur pointer */
-            padding: 10px 20px; /* Espacement intérieur */
         }
-        .bouton:hover {
-            background-color: #7FBB34; /* Changement de couleur au survol */
-        }
+
     </style>
 </head>
 <body>
-    <div class="en_tête">
-        <img src="https://cdn.discordapp.com/attachments/1062809373828714576/1210252116149674034/minecraft_title.png?ex=65e9e21d&is=65d76d1d&hm=a45e96ebe37ce67436be27a0d8c627bde8dd1db4845a2243b788e6e4ea603970" alt="Logo Heliantus" class="titre_logo_heliantus">
-        <h2>Liste des Cartes d'identité</h2>
+    <div class="entete">
+        <img class="img-heliante" src="https://cdn.discordapp.com/attachments/1062809373828714576/1210252116149674034/minecraft_title.png?ex=65e9e21d&is=65d76d1d&hm=a45e96ebe37ce67436be27a0d8c627bde8dd1db4845a2243b788e6e4ea603970&" alt="Logo Heliantus">
+    
+        <h2 class="list-titre">Liste de carte d'identiter :</h2>
     </div>
 
-    <button class="bouton" onclick="creerCarte()">Créer une carte</button>
+    <!-- Bouton pour ouvrir la page de création de carte -->
+    <button onclick="creerCarte()" class="create-card"><strong>Créer une carte</strong></button>
 
-    <div id="cartes">
-        <!-- Les cartes seront ajoutées ici -->
+    <br>
+    <!-- Barre de recherche -->
+    <input type="text" id="search" class="search-bar" placeholder="Rechercher par pseudo...">
+    
+    <!-- Listes des cartes -->
+    <div class="list-card" id="cartes">
+        <!-- Vos boutons ici -->
     </div>
 
     <script>
@@ -78,36 +112,103 @@
             "admin2": "pseudo2"
         };
 
+        // Chargement des cartes sauvegardées dans le localStorage
+        window.onload = function() {
+            var cartes = JSON.parse(localStorage.getItem('cartes')) || [];
+            cartes.forEach(function(carte) {
+                afficherCarte(carte.pseudo);
+            });
+        };
+
         function creerCarte() {
             var codeAdmin = prompt("Entrez le code administrateur :");
             if (codeAdmin !== null) {
                 if (admins.hasOwnProperty(codeAdmin)) {
                     var pseudo = prompt("Entrez le pseudo de la personne :");
                     if (pseudo !== null) {
-                        var carteDiv = document.createElement('div');
-                        carteDiv.className = "carte";
+                        afficherCarte(pseudo);
+                        sauvegarderCarte(pseudo);
+                    }
+                } else {
+                    alert("Code administrateur incorrect");
+                }
+            }
+        }
 
-                        var img = document.createElement('img');
-                        img.src = "https://skins.nationsglory.fr/face/" + pseudo + "/3d/20";
-                        img.className = "img-icon";
-                        img.alt = "Photo du joueur";
+        function afficherCarte(pseudo) {
+            var carteDiv = document.createElement('div');
+            carteDiv.className = "carte";
 
-                        var a = document.createElement('a');
-                        a.innerHTML = "<strong>" + pseudo + "</strong>";
+            var img = document.createElement('img');
+            img.src = "https://skins.nationsglory.fr/face/" + pseudo + "/3d/20";
+            img.className = "img-icon";
+            img.alt = "Photo du joueur";
 
-                        carteDiv.appendChild(img);
-                        carteDiv.appendChild(a);
+            var a = document.createElement('a');
+            a.innerHTML = "<strong>" + pseudo + "</strong>";
+            a.src = pseudo + '/' + pseudo;
 
-                        var supprimerBtn = document.createElement('button');
-                        supprimerBtn.className = "supprimer";
-                        supprimerBtn.innerText = "X";
-                        supprimerBtn.onclick = function() {
-                            var confirmation = confirm("Êtes-vous sûr de vouloir supprimer cette carte ?");
-                            if (confirmation) {
-                                this.parentNode.remove();
-                            }
-                        };
+            carteDiv.appendChild(img);
+            carteDiv.appendChild(a);
 
-                        carteDiv.appendChild(supprimerBtn);
+            var supprimerBtn = document.createElement('button');
+            supprimerBtn.className = "supprimer delete-button";
+            supprimerBtn.innerText = "Supprimer";
+            supprimerBtn.onclick = function() {
+                var codeAdmin = prompt("Entrez le code administrateur pour supprimer la carte de " + pseudo + " :");
+                if (codeAdmin !== null) {
+                    if (admins.hasOwnProperty(codeAdmin)) {
+                        var confirmation = confirm("Êtes-vous sûr de vouloir supprimer cette carte ?");
+                        if (confirmation) {
+                            this.parentNode.remove();
+                            supprimerCarte(pseudo);
+                        }
+                    } else {
+                        alert("Code administrateur incorrect");
+                    }
+                }
+            };
 
-                        document.getElementById('cartes').appendChild(carte
+            carteDiv.appendChild(supprimerBtn);
+
+            document.getElementById('cartes').appendChild(carteDiv);
+        }
+
+        function sauvegarderCarte(pseudo) {
+            var cartes = JSON.parse(localStorage.getItem('cartes')) || [];
+            cartes.push({ pseudo: pseudo });
+            localStorage.setItem('cartes', JSON.stringify(cartes));
+        }
+
+        function supprimerCarte(pseudo) {
+            var cartes = JSON.parse(localStorage.getItem('cartes')) || [];
+            var index = cartes.findIndex(function(carte) {
+                return carte.pseudo === pseudo;
+            });
+            if (index !== -1) {
+                cartes.splice(index, 1);
+                localStorage.setItem('cartes', JSON.stringify(cartes));
+            }
+        }
+
+         // Fonction pour filtrer les cartes en fonction du pseudo saisi dans la barre de recherche
+        function filtrerCartes() {
+            var input = document.getElementById('search').value.toLowerCase(); // Récupérer la valeur saisie dans la barre de recherche
+            var cartes = document.querySelectorAll('.carte'); // Sélectionner toutes les cartes
+
+            // Parcourir toutes les cartes et les cacher si leur pseudo ne correspond pas à la recherche
+            cartes.forEach(function(carte) {
+                var pseudo = carte.querySelector('a').innerText.toLowerCase(); // Récupérer le pseudo de la carte
+                if (pseudo.includes(input)) {
+                    carte.style.display = 'inline-block'; // Afficher la carte si le pseudo correspond à la recherche
+                } else {
+                    carte.style.display = 'none'; // Cacher la carte sinon
+                }
+            });
+        }
+
+        // Ajouter un écouteur d'événements pour déclencher la fonction filtrerCartes à chaque fois que du texte est saisi dans la barre de recherche
+        document.getElementById('search').addEventListener('input', filtrerCartes);
+    </script>
+</body>
+</html>
