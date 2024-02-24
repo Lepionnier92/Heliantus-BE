@@ -1,45 +1,82 @@
-.cartes {
-    display: flex; /* Utilisation de Flexbox */
-    flex-wrap: wrap; /* Permettre aux éléments de passer à la ligne si nécessaire */
+/* styles.css */
+
+/* Styles généraux */
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #87CEEB;
+    margin: 0;
+    padding: 0;
 }
 
+.entete {
+    font-size: 15px;
+    color: rgb(46, 43, 43);
+    padding: auto;
+    margin: auto;
+    text-align: center;
+}
+
+.list-titre {
+    margin-bottom: 20px;
+}
+
+/* Bouton de création de carte */
+.create-card {
+    border-radius: 90px; /* Bordure arrondie */
+    font-size: 20px; /* Taille de la police */
+    border: 1px solid rgb(103, 192, 43); /* Bordure */
+    background-color: rgb(103, 192, 43); /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    margin-top: 20px; /* Marge supérieure pour l'espace */
+    margin-bottom: 20px; /* Marge inférieure */
+}
+
+/* Barre de recherche */
+.search-bar {
+    margin-bottom: 10px;
+    border-radius: 5px; /* Bordure arrondie */
+    border: 1px solid #ccc; /* Bordure grise */
+    padding: 5px 10px; /* Espacement à l'intérieur de la barre */
+    width: calc(100% - 22px); /* Largeur de la barre de recherche */
+}
+
+/* Conteneur de cartes */
+.list-card {
+    display: flex; /* Utilisation de Flexbox pour aligner les cartes */
+    flex-wrap: wrap; /* Permettre aux cartes de passer à la ligne si nécessaire */
+}
+
+/* Styles pour chaque carte */
 .carte {
     display: inline-flex; /* Utiliser flexbox pour centrer l'image */
     justify-content: center; /* Centrer horizontalement */
-    height: 110px;
-    margin-right: 10px; /* Ajouter un espace entre les cartes */
-    margin-bottom: 10px; /* Ajouter un espace en bas des cartes */
-    /* Autres styles */
-}
-/* Styles pour les boutons de carte */
-.carte {
-    
-    margin-bottom: 10px; /* Espacement entre les boutons */
-    border-radius: 10px;
+    align-items: center; /* Centrer verticalement */
+    width: 88px; /* Définir une largeur minimale pour la carte */
+    min-width: 88px; /* Largeur minimale */
+    height: 110px; /* Hauteur de la carte */
+    margin-right: 10px; /* Espacement entre les cartes horizontalement */
+    margin-bottom: 10px; /* Espacement entre les cartes verticalement */
+    border-radius: 10px; /* Coins arrondis */
     background-image: url("https://cdn.discordapp.com/attachments/1062809373828714576/1210280203402878976/textureH.png?ex=65e9fc46&is=65d78746&hm=c7867293bd7678378d4e8371375c6e633c3b22b4260e298d2484c6bd912d1e0f&");
-    color: #fff;
-    border: #78b8ff;
+    color: #fff; /* Couleur du texte */
+    border: #78b8ff; /* Bordure de la carte */
 }
 
-
-.carte a {
-    display: block; /* Pour que le lien occupe tout le bouton */
-    text-decoration: none; /* Supprimer le soulignement du lien */
-    padding-top: 0px;
-}
-
+/* Style de l'image à l'intérieur de la carte */
 .carte img {
-    width: 75px; /* Utiliser toute la largeur de la carte pour l'image */
-    height: auto; /* Ajuster automatiquement la hauteur de l'image */
-    padding-top: 5px;
-    align-items: center;
+    width: 75px; /* Largeur de l'image */
+    height: auto; /* Hauteur automatique pour conserver les proportions */
 }
 
-.carte strong {
-    display: block; /* Pour que le texte apparaisse sous l'image */
+/* Style du lien à l'intérieur de la carte */
+.carte a {
+    display: block; /* Permettre au lien d'occuper tout l'espace de la carte */
+    text-decoration: none; /* Supprimer le soulignement du lien */
     text-align: center; /* Centrer le texte */
+    padding-top: 5px; /* Espacement en haut du texte */
 }
 
+/* Style du bouton de suppression */
 .delete-button {
     background-color: #c6003e; /* Couleur de fond du bouton de suppression */
     color: #fff; /* Couleur du texte du bouton de suppression */
@@ -49,31 +86,6 @@
     cursor: pointer; /* Curseur de la souris en forme de main */
     margin-left: 2.5px; /* Espacement à gauche du bouton */
     margin-right: 20px;
-    margin-top: 10px;
-    margin-bottom: 45px;
-}
-
-.search-bar {
-    margin-bottom: 10px;
-}
-body {
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: #87CEEB;
-}
-.entete {
-    font-size: 15;
-    color: rgb(46, 43, 43);
-    padding: auto;
-    margin: auto;
-    text-align: center;
-}
-
-.create-card {
-    border-radius: 90px; /* Bordure arrondie */
-    font-size: 20px; /* Taille de la police */
-    border: 1px solid rgb(103, 192, 43); /* Bordure */
-    background-color: rgb(103, 192, 43); /* Couleur de fond */
-    color: white; /* Couleur du texte */
-    margin-top: 20px; /* Marge supérieure pour l'espace */
-    margin-bottom: 20px; /* Marge inférieure */
+    margin-top: 10px; /* Espacement en haut du bouton */
+    margin-bottom: 45px; /* Espacement en bas du bouton */
 }
