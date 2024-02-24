@@ -85,6 +85,21 @@
             margin-bottom: 20px; /* Marge inférieure */
         }
 
+        /* Barre de défilement transparente et arrondie pour les navigateurs WebKit (Chrome, Safari) */
+        ::-webkit-scrollbar {
+            width: 8px; /* Largeur de la barre de défilement */
+            background-color: transparent; /* Couleur de fond transparente */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.3); /* Couleur de la poignée de la barre de défilement */
+            border-radius: 10px; /* Rayon de la bordure arrondie */
+        }
+
+        a {
+            color: #fff;
+        }
+
     </style>
 </head>
 <body>
@@ -108,7 +123,7 @@
 
     <script>
         var admins = {
-            "ED574": "jules92",
+            "ED574": "pseudo1",
             "admin2": "pseudo2"
         };
 
@@ -145,8 +160,8 @@
             img.alt = "Photo du joueur";
 
             var a = document.createElement('a');
+            a.href = pseudo + '/' + pseudo;
             a.innerHTML = "<strong>" + pseudo + "</strong>";
-            a.src = pseudo + '/' + pseudo;
 
             carteDiv.appendChild(img);
             carteDiv.appendChild(a);
