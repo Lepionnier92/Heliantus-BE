@@ -17,7 +17,6 @@
             color: rgb(46, 43, 43); /* Couleur du texte */
             padding: auto; /* Ajustement automatique du rembourrage */
             font-size: 15px; /* Taille de la police pour l'en-tête */
-            width 1902em
         }
         h2 {
             color: #000; /* Couleur du texte noir */
@@ -50,10 +49,6 @@
     </style>
 </head>
 <body>
-    <div class="admin_container">
-        <button class="bouton" onclick="creerCarte()">Créer une carte</button>
-    </div>
-
     <div class="en_tête">
         <img src="https://cdn.discordapp.com/attachments/1062809373828714576/1210252116149674034/minecraft_title.png?ex=65e9e21d&is=65d76d1d&hm=a45e96ebe37ce67436be27a0d8c627bde8dd1db4845a2243b788e6e4ea603970" alt="Logo Heliantus" class="titre_logo_heliantus">
         <h2>Liste des Cartes d'identité</h2>
@@ -84,19 +79,7 @@
                         supprimerBtn.onclick = function() {
                             var confirmation = confirm("Êtes-vous sûr de vouloir supprimer cette carte ?");
                             if (confirmation) {
-                                // Envoi du code administrateur à votre serveur pour vérification
-                                var xhr = new XMLHttpRequest();
-                                xhr.open("POST", "votre_url_de_traitement", true);
-                                xhr.setRequestHeader("Content-Type", "application/json");
-                                xhr.onreadystatechange = function () {
-                                    if (xhr.readyState === 4 && xhr.status === 200) {
-                                        // Suppression de la carte si le code est correct
-                                        this.parentNode.remove();
-                                        // Envoi du message SMS
-                                        envoyerSMS();
-                                    }
-                                };
-                                xhr.send(JSON.stringify({codeAdmin: codeAdmin}));
+                                this.parentNode.remove();
                             }
                         };
 
@@ -118,24 +101,6 @@
                     alert("Code administrateur incorrect");
                 }
             }
-        }
-
-        function envoyerSMS() {
-            // Code pour envoyer un SMS avec Twilio
-            const twilio = require('twilio');
-
-            const accountSid = 'VOTRE_ACCOUNT_SID';
-            const authToken = 'VOTRE_AUTH_TOKEN';
-            const client = new twilio(accountSid, authToken);
-
-            client.messages
-                .create({
-                    body: 'Une carte a été supprimée sur votre site.',
-                    from: 'VOTRE_NUMERO_TWILIO',
-                    to: '+NUMERO_DESTINATAIRE'
-                })
-                .then(message => console.log(message.sid))
-                .catch(console.error);
         }
     </script>
 </body>
