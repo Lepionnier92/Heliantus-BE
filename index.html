@@ -46,6 +46,19 @@
         .supprimer:hover {
             background-color: #FF2200; /* Changement de couleur au survol */
         }
+        .bouton {
+            border-radius: 90px; /* Bordure arrondie */
+            font-size: 20px; /* Taille de la police */
+            border: 1px solid rgb(103, 192, 43); /* Bordure */
+            background-color: rgb(103, 192, 43); /* Couleur de fond */
+            color: white; /* Couleur du texte */
+            margin-bottom: 20px; /* Marge inférieure */
+            cursor: pointer; /* Curseur pointer */
+            padding: 10px 20px; /* Espacement intérieur */
+        }
+        .bouton:hover {
+            background-color: #7FBB34; /* Changement de couleur au survol */
+        }
     </style>
 </head>
 <body>
@@ -53,6 +66,8 @@
         <img src="https://cdn.discordapp.com/attachments/1062809373828714576/1210252116149674034/minecraft_title.png?ex=65e9e21d&is=65d76d1d&hm=a45e96ebe37ce67436be27a0d8c627bde8dd1db4845a2243b788e6e4ea603970" alt="Logo Heliantus" class="titre_logo_heliantus">
         <h2>Liste des Cartes d'identité</h2>
     </div>
+
+    <button class="bouton" onclick="creerCarte()">Créer une carte</button>
 
     <div id="cartes">
         <!-- Les cartes seront ajoutées ici -->
