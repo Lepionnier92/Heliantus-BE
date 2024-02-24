@@ -5,7 +5,6 @@
 
 .carte {
     display: inline-block; /* Afficher les cartes en ligne */
-    width: 88px; /* Définir une largeur fixe pour la carte */
     height: 110px;
     margin-right: 10px; /* Ajouter un espace entre les cartes */
     margin-bottom: 10px; /* Ajouter un espace en bas des cartes */
@@ -58,7 +57,6 @@
 body {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: #87CEEB;
-
 }
 .entete {
     font-size: 15;
@@ -76,19 +74,4 @@ body {
     color: white; /* Couleur du texte */
     margin-top: 20px; /* Marge supérieure pour l'espace */
     margin-bottom: 20px; /* Marge inférieure */
-}
-
-/* Barre de défilement transparente et arrondie pour les navigateurs WebKit (Chrome, Safari) */
-::-webkit-scrollbar {
-    width: 8px; /* Largeur de la barre de défilement */
-    background-color: transparent; /* Couleur de fond transparente */
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.3); /* Couleur de la poignée de la barre de défilement */
-    border-radius: 10px; /* Rayon de la bordure arrondie */
-}
-
-a {
-    color: #fff;
 }

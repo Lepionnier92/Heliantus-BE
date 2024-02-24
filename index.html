@@ -3,12 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="stylesheet" href="style.css">
-    <title>Acceuil | Heliantus-BE</title>
+    <title>Page Principale</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
     <div class="entete">
@@ -29,109 +25,6 @@
         <!-- Vos boutons ici -->
     </div>
 
-    <script>
-        var admins = {
-            "ED574": "pseudo1",
-            "admin2": "pseudo2"
-        };
-
-        // Chargement des cartes sauvegardées dans le localStorage
-        window.onload = function() {
-            var cartes = JSON.parse(localStorage.getItem('cartes')) || [];
-            cartes.forEach(function(carte) {
-                afficherCarte(carte.pseudo);
-            });
-        };
-
-        function creerCarte() {
-            var codeAdmin = prompt("Entrez le code administrateur :");
-            if (codeAdmin !== null) {
-                if (admins.hasOwnProperty(codeAdmin)) {
-                    var pseudo = prompt("Entrez le pseudo de la personne :");
-                    if (pseudo !== null) {
-                        afficherCarte(pseudo);
-                        sauvegarderCarte(pseudo);
-                    }
-                } else {
-                    alert("Code administrateur incorrect");
-                }
-            }
-        }
-
-        function afficherCarte(pseudo) {
-            var carteDiv = document.createElement('div');
-            carteDiv.className = "carte";
-
-            var img = document.createElement('img');
-            img.src = "https://skins.nationsglory.fr/face/" + pseudo + "/3d/20";
-            img.className = "img-icon";
-            img.alt = "Photo du joueur";
-
-            var a = document.createElement('a');
-            a.href = pseudo + '/' + pseudo;
-            a.innerHTML = "<strong>" + pseudo + "</strong>";
-
-            carteDiv.appendChild(img);
-            carteDiv.appendChild(a);
-
-            var supprimerBtn = document.createElement('button');
-            supprimerBtn.className = "supprimer delete-button";
-            supprimerBtn.innerText = "Supprimer";
-            supprimerBtn.onclick = function() {
-                var codeAdmin = prompt("Entrez le code administrateur pour supprimer la carte de " + pseudo + " :");
-                if (codeAdmin !== null) {
-                    if (admins.hasOwnProperty(codeAdmin)) {
-                        var confirmation = confirm("Êtes-vous sûr de vouloir supprimer cette carte ?");
-                        if (confirmation) {
-                            this.parentNode.remove();
-                            supprimerCarte(pseudo);
-                        }
-                    } else {
-                        alert("Code administrateur incorrect");
-                    }
-                }
-            };
-
-            carteDiv.appendChild(supprimerBtn);
-
-            document.getElementById('cartes').appendChild(carteDiv);
-        }
-
-        function sauvegarderCarte(pseudo) {
-            var cartes = JSON.parse(localStorage.getItem('cartes')) || [];
-            cartes.push({ pseudo: pseudo });
-            localStorage.setItem('cartes', JSON.stringify(cartes));
-        }
-
-        function supprimerCarte(pseudo) {
-            var cartes = JSON.parse(localStorage.getItem('cartes')) || [];
-            var index = cartes.findIndex(function(carte) {
-                return carte.pseudo === pseudo;
-            });
-            if (index !== -1) {
-                cartes.splice(index, 1);
-                localStorage.setItem('cartes', JSON.stringify(cartes));
-            }
-        }
-
-         // Fonction pour filtrer les cartes en fonction du pseudo saisi dans la barre de recherche
-        function filtrerCartes() {
-            var input = document.getElementById('search').value.toLowerCase(); // Récupérer la valeur saisie dans la barre de recherche
-            var cartes = document.querySelectorAll('.carte'); // Sélectionner toutes les cartes
-
-            // Parcourir toutes les cartes et les cacher si leur pseudo ne correspond pas à la recherche
-            cartes.forEach(function(carte) {
-                var pseudo = carte.querySelector('a').innerText.toLowerCase(); // Récupérer le pseudo de la carte
-                if (pseudo.includes(input)) {
-                    carte.style.display = 'inline-block'; // Afficher la carte si le pseudo correspond à la recherche
-                } else {
-                    carte.style.display = 'none'; // Cacher la carte sinon
-                }
-            });
-        }
-
-        // Ajouter un écouteur d'événements pour déclencher la fonction filtrerCartes à chaque fois que du texte est saisi dans la barre de recherche
-        document.getElementById('search').addEventListener('input', filtrerCartes);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
