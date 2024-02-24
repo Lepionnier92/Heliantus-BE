@@ -31,7 +31,6 @@
 .carte img {
     width: 75px; /* Utiliser toute la largeur de la carte pour l'image */
     height: auto; /* Ajuster automatiquement la hauteur de l'image */
-    padding-left: 7px;
     padding-top: 5px;
 }
 
