@@ -4,7 +4,9 @@
 }
 
 .carte {
-    display: inline-block; /* Afficher les cartes en ligne */
+    display: inline-flex; /* Utiliser flexbox pour centrer l'image */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
     height: 110px;
     margin-right: 10px; /* Ajouter un espace entre les cartes */
     margin-bottom: 10px; /* Ajouter un espace en bas des cartes */
@@ -12,6 +14,7 @@
 }
 /* Styles pour les boutons de carte */
 .carte {
+    
     margin-bottom: 10px; /* Espacement entre les boutons */
     border-radius: 10px;
     background-image: url("https://cdn.discordapp.com/attachments/1062809373828714576/1210280203402878976/textureH.png?ex=65e9fc46&is=65d78746&hm=c7867293bd7678378d4e8371375c6e633c3b22b4260e298d2484c6bd912d1e0f&");
