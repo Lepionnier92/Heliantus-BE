@@ -66,6 +66,7 @@ body {
 .carte img {
     width: 75px; /* Largeur de l'image */
     height: auto; /* Hauteur automatique pour conserver les proportions */
+    align-items: center;
 }
 
 /* Style du lien à l'intérieur de la carte */
