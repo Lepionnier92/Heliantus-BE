@@ -32,11 +32,7 @@
     width: 75px; /* Utiliser toute la largeur de la carte pour l'image */
     height: auto; /* Ajuster automatiquement la hauteur de l'image */
     padding-top: 5px;
-    display: inline-flex; /* Utiliser flexbox pour centrer l'image */
-    justify-content: center; /* Centrer horizontalement */
-    height: 110px;
-    margin-right: 10px; /* Ajouter un espace entre les cartes */
-    margin-bottom: 10px; /* Ajouter un espace en bas des cartes */
+    margin-left: auto;
 }
 
 .carte strong {
