@@ -70,7 +70,7 @@ body {
     position: absolute; /* Position absolue pour centrer l'image */
     left: 50%; /* Positionner l'image à 50% du haut de la carte */
     right: 50%; /* Positionner l'image à 50% de la droite de la carte */
-    transform: translate(50%, -50%); /* Décaler l'image de moitié de sa propre taille pour la centrer */
+    /*transform: translate(50%, -50%); /* Décaler l'image de moitié de sa propre taille pour la centrer */
 }
 
 
