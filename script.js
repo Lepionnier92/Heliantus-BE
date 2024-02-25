@@ -88,18 +88,15 @@ function supprimerCarte(pseudo) {
     }
 }
 
-function rechercherCarte() {
-    var input = document.getElementById('search');
-    var filter = input.value.toUpperCase();
-    var cartes = document.getElementById('cartes');
-    var carte = cartes.getElementsByClassName('carte');
-    for (var i = 0; i < carte.length; i++) {
-        var a = carte[i].getElementsByTagName('a')[0];
-        var txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            carte[i].style.display = "";
+document.getElementById('search').addEventListener('input', function() {
+    var searchTerm = this.value.toLowerCase();
+    var cartes = document.getElementsByClassName('carte');
+    for (var i = 0; i < cartes.length; i++) {
+        var pseudo = cartes[i].getElementsByTagName('strong')[0].innerText.toLowerCase();
+        if (pseudo.includes(searchTerm)) {
+            cartes[i].classList.remove('hidden');
         } else {
-            carte[i].style.display = "none";
+            cartes[i].classList.add('hidden');
         }
     }
-}
+});

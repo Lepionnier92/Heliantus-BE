@@ -26,6 +26,7 @@ body {
     font-size: 20px; /* Taille de la police */
     border: 1px solid rgb(103, 192, 43); /* Bordure */
     background-color: rgb(103, 192, 43); /* Couleur de fond */
+    cursor: pointer;
     color: white; /* Couleur du texte */
     margin-top: 20px; /* Marge supérieure pour l'espace */
     margin-bottom: 20px; /* Marge inférieure */
@@ -47,41 +48,37 @@ body {
 }
 
 /* Styles pour chaque carte */
+/* Styles pour les cartes */
 .carte {
-   /* display: inline-flex; /* Utiliser flexbox pour centrer l'image 
-    justify-content: center; /* Centrer horizontalement 
-    align-items: center; /* Centrer verticalement */
-    width: 88px; /* Définir une largeur minimale pour la carte */
-    min-width: 88px; /* Largeur minimale */
-    height: 110px; /* Hauteur de la carte */
-    margin-right: 10px; /* Espacement entre les cartes horizontalement */
-    margin-bottom: 10px; /* Espacement entre les cartes verticalement */
+    display: inline-flex; /* Utiliser flexbox pour centrer l'image */
+    flex-direction: column; /* Aligner les éléments en colonne */
+    align-items: center; /* Centrer les éléments horizontalement */
+    width: 88px; /* Largeur fixe minimale de la carte */
+    height: 110px; /* Hauteur fixe de la carte */
+    margin-right: 0px; /* Marge à droite de chaque carte */
+    margin-left: 10px;
+    margin-bottom: 10px; /* Marge en bas de chaque carte */
     border-radius: 10px; /* Coins arrondis */
     background-image: url("https://cdn.discordapp.com/attachments/1062809373828714576/1210280203402878976/textureH.png?ex=65e9fc46&is=65d78746&hm=c7867293bd7678378d4e8371375c6e633c3b22b4260e298d2484c6bd912d1e0f&");
     color: #fff; /* Couleur du texte */
-    border: #78b8ff; /* Bordure de la carte */
+    border: #78b8ff; /* Couleur de la bordure */
 }
 
-/* Style de l'image à l'intérieur de la carte */
-/* Style pour l'image dans chaque carte */
-.carte img{
-    max-width: 100%; /* Taille maximale de l'image pour s'adapter à la carte */
-    max-height: 100%; /* Taille maximale de l'image pour s'adapter à la carte */
-    position: absolute; /* Position absolue pour centrer l'image */
-    left: 50%; /* Positionner l'image à 50% du haut de la carte */
-    right: 50%; /* Positionner l'image à 50% de la droite de la carte */
-    transform: translate(50%, -50%); /* Décaler l'image de moitié de sa propre taille pour la centrer */
+/* Style pour l'image à l'intérieur de la carte */
+.carte img {
+    width: 75px; /* Largeur de l'image */
+    height: auto; /* Hauteur automatique de l'image */
+    margin-bottom: 5px; /* Marge en bas de l'image */
 }
 
-
-/* Style du lien à l'intérieur de la carte */
+/* Style pour le texte à l'intérieur de la carte */
 .carte a {
-    display: block; /* Permettre au lien d'occuper tout l'espace de la carte */
-    text-decoration: none; /* Supprimer le soulignement du lien */
-    text-align: center; /* Centrer le texte */
+    display: block; /* Afficher le texte en bloc */
     color: #fff;
-    padding-top: 5px; /* Espacement en haut du texte */
+    text-align: center; /* Centrer le texte horizontalement */
+    text-decoration: none; /* Supprimer le soulignement du lien */
 }
+
 
 /* Style du bouton de suppression */
 .delete-button {
@@ -91,8 +88,16 @@ body {
     padding: 5px 10px; /* Espacement à l'intérieur du bouton */
     border-radius: 5px; /* Coins arrondis */
     cursor: pointer; /* Curseur de la souris en forme de main */
-    margin-left: 2.5px; /* Espacement à gauche du bouton */
-    margin-right: 20px;
-    margin-top: 10px; /* Espacement en haut du bouton */
+    margin-left: 0px; /* Espacement à gauche du bouton */
+    margin-right: 0px;
+    margin-top: 15px; /* Espacement en haut du bouton */
     margin-bottom: 45px; /* Espacement en bas du bouton */
+    /*left: 50%;
+    transform: translateX(-50%); /* Centrer horizontalement 
+    margin-left: 0; /* Ajoutez cette ligne pour enlever la marge gauche 
+    margin-right: 0; /* Ajoutez cette ligne pour enlever la marge droite */
+}
+
+.hidden {
+    display: none;
 }
