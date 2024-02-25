@@ -87,3 +87,19 @@ function supprimerCarte(pseudo) {
         localStorage.setItem('cartes', JSON.stringify(cartes));
     }
 }
+
+function rechercherCarte() {
+    var input = document.getElementById('search');
+    var filter = input.value.toUpperCase();
+    var cartes = document.getElementById('cartes');
+    var carte = cartes.getElementsByClassName('carte');
+    for (var i = 0; i < carte.length; i++) {
+        var a = carte[i].getElementsByTagName('a')[0];
+        var txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            carte[i].style.display = "";
+        } else {
+            carte[i].style.display = "none";
+        }
+    }
+}
