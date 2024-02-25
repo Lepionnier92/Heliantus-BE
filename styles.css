@@ -63,11 +63,16 @@ body {
 }
 
 /* Style de l'image à l'intérieur de la carte */
+/* Style pour l'image dans chaque carte */
 .carte img {
-    width: 75px; /* Largeur de l'image */
-    height: auto; /* Hauteur automatique pour conserver les proportions */
-    align-items: center;
+    max-width: 100%; /* Taille maximale de l'image pour s'adapter à la carte */
+    max-height: 100%; /* Taille maximale de l'image pour s'adapter à la carte */
+    position: absolute; /* Position absolue pour centrer l'image */
+    left: 50%; /* Positionner l'image à 50% du haut de la carte */
+    right: 50%; /* Positionner l'image à 50% de la droite de la carte */
+    transform: translate(50%, -50%); /* Décaler l'image de moitié de sa propre taille pour la centrer */
 }
+
 
 /* Style du lien à l'intérieur de la carte */
 .carte a {
