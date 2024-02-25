@@ -57,7 +57,7 @@ body {
     height: 110px; /* Hauteur fixe de la carte */
     margin-right: 0px; /* Marge à droite de chaque carte */
     margin-left: 10px;
-    margin-bottom: 10px; /* Marge en bas de chaque carte */
+    margin-bottom: 60px; /* Marge en bas de chaque carte */
     border-radius: 10px; /* Coins arrondis */
     background-image: url("https://cdn.discordapp.com/attachments/1062809373828714576/1210280203402878976/textureH.png?ex=65e9fc46&is=65d78746&hm=c7867293bd7678378d4e8371375c6e633c3b22b4260e298d2484c6bd912d1e0f&");
     color: #fff; /* Couleur du texte */
@@ -100,4 +100,32 @@ body {
 
 .hidden {
     display: none;
+}
+
+/* Barre de défilement pour Chrome, Safari et Opera */
+::-webkit-scrollbar {
+    width: 10px; /* Largeur de la barre de défilement */
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent; /* Couleur de fond de la piste */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3); /* Couleur du bouton de défilement */
+    border-radius: 5px; /* Coins arrondis */
+}
+
+/* Barre de défilement pour Firefox */
+::-moz-scrollbar {
+    width: 10px; /* Largeur de la barre de défilement */
+}
+
+::-moz-scrollbar-track {
+    background-color: transparent; /* Couleur de fond de la piste */
+}
+
+::-moz-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3); /* Couleur du bouton de défilement */
+    border-radius: 5px; /* Coins arrondis */
 }
