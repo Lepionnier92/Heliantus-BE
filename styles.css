@@ -37,7 +37,7 @@ body {
     border-radius: 5px; /* Bordure arrondie */
     border: 1px solid #ccc; /* Bordure grise */
     padding: 5px 10px; /* Espacement à l'intérieur de la barre */
-    width: calc(100% - 22px); /* Largeur de la barre de recherche */
+    width: auto; /* Largeur de la barre de recherche */
 }
 
 /* Conteneur de cartes */
@@ -48,8 +48,8 @@ body {
 
 /* Styles pour chaque carte */
 .carte {
-    display: inline-flex; /* Utiliser flexbox pour centrer l'image */
-    justify-content: center; /* Centrer horizontalement */
+   /* display: inline-flex; /* Utiliser flexbox pour centrer l'image 
+    justify-content: center; /* Centrer horizontalement 
     align-items: center; /* Centrer verticalement */
     width: 88px; /* Définir une largeur minimale pour la carte */
     min-width: 88px; /* Largeur minimale */
@@ -66,6 +66,7 @@ body {
 .carte img {
     width: 75px; /* Largeur de l'image */
     height: auto; /* Hauteur automatique pour conserver les proportions */
+    align-items: center;
 }
 
 /* Style du lien à l'intérieur de la carte */
@@ -73,6 +74,7 @@ body {
     display: block; /* Permettre au lien d'occuper tout l'espace de la carte */
     text-decoration: none; /* Supprimer le soulignement du lien */
     text-align: center; /* Centrer le texte */
+    color: #fff;
     padding-top: 5px; /* Espacement en haut du texte */
 }
 
