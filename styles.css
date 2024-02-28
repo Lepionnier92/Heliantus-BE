@@ -2,27 +2,22 @@
 
 /* Styles généraux */
 body {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('le_pionnier_ALASKA_ff51a9ab-212c-468c-ba50-c2d99bc6e3d9.png'); /* Remplacez 'votre-image.jpg' par le chemin de votre image */
-    background-size: cover;
-    pointer-events: none; /* Empêcher l'interaction avec l'arrière-plan */
-    z-index: -1; /* Placer l'arrière-plan en arrière-plan */
-    animation: moveBackground 30s linear infinite; /* Animation pour déplacer l'arrière-plan */
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #87CEEB;
     margin: 0;
     padding: 0;
 }
 
 .entete {
-    font-size: 1rem;
-    color: rgb(0, 0, 0);
+    font-size: 15px;
+    color: rgb(46, 43, 43);
     padding: auto;
     margin: auto;
     text-align: center;
+}
+
+.list-titre {
+    margin-bottom: 20px;
 }
 
 /* Bouton de création de carte */
@@ -66,7 +61,7 @@ body {
     border-radius: 10px; /* Coins arrondis */
     background-image: url("https://cdn.discordapp.com/attachments/1062809373828714576/1210280203402878976/textureH.png?ex=65e9fc46&is=65d78746&hm=c7867293bd7678378d4e8371375c6e633c3b22b4260e298d2484c6bd912d1e0f&");
     color: #fff; /* Couleur du texte */
-    border: #00000000; /* Couleur de la bordure */
+    border: #78b8ff; /* Couleur de la bordure */
 }
 
 /* Style pour l'image à l'intérieur de la carte */
@@ -133,27 +128,4 @@ body {
 ::-moz-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.3); /* Couleur du bouton de défilement */
     border-radius: 5px; /* Coins arrondis */
-}
-/* Style pour l'arrière-plan animé */
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('le_pionnier_ALASKA_ff51a9ab-212c-468c-ba50-c2d99bc6e3d9.png'); /* Remplacez 'votre-image.jpg' par le chemin de votre image */
-    background-size: cover;
-    pointer-events: none; /* Empêcher l'interaction avec l'arrière-plan */
-    z-index: -1; /* Placer l'arrière-plan en arrière-plan */
-    animation: moveBackground 30s linear infinite; /* Animation pour déplacer l'arrière-plan */
-}
-
-@keyframes moveBackground {
-    from { background-position: 0 0; }
-    to { background-position: 100% 0; }
-}
-
-.img-heliante {
-    width: 74%;
-    height: auto;
 }
